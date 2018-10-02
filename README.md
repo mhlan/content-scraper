@@ -39,3 +39,5 @@ Imagine you work for a price comparison website. You’ve been given the task to
 ###### Error Handling
 
 - [ ] The program displays a human-friendly error (not just the original error code) when it cannot connect to http://shirts4mike.com
+- [ ] Exceeds: Program logs errors in a scraper-error.log` file.
+- [ ] Exceeds: New errors append to the end of the file with a timestamp, e.g. [Tue Feb 16 2016 13:00:55 GMT-0800 (PST)] <error message>
