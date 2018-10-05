@@ -12,7 +12,7 @@ Imagine you work for a price comparison website. You’ve been given the task to
 
 ###### Folder Generation
 
-- [ ] Program creates onedata folder if that folder doesn’t already exist. If the folder does exist, the program does nothing.
+- [ ] Program creates one data folder if that folder doesn’t already exist. If the folder does exist, the program does nothing.
 
 ###### Research npm packages
 

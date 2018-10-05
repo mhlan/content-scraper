@@ -1,0 +1,22 @@
+{
+  "name": "content-scraper",
+  "version": "0.0.1",
+  "description": "A web scraper",
+  "main": "scraper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhlan/content-scraper.git"
+  },
+  "author": "Matthew Lanin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mhlan/content-scraper/issues"
+  },
+  "homepage": "https://github.com/mhlan/content-scraper#readme",
+  "dependencies": {
+    "scrape-it": "^5.0.5"
+  }
+}
