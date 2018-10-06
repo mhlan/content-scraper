@@ -1,9 +1,10 @@
 const scrapeIt = require("scrape-it");
 
-const url = "http://shirts4mike.com/";
+const mainURL = "http://shirts4mike.com/";
+let shirtURLs;
+let shirtData = [];
 
-// Promise interface
-scrapeIt(`${url}shirts.php`, {
+scrapeIt(`${mainURL}shirts.php`, {
   pages: {
     listItem: ".products li",
     name: "pages",
@@ -16,8 +17,10 @@ scrapeIt(`${url}shirts.php`, {
   }
 }).then(({ data, response }) => {
   console.log(`Status Code For Main Shirts Page: ${response.statusCode}`);
-  console.log(data.pages[3]);
-  scrapeIt(`${url}${data.pages[3].url}`, {
+  // console.log(data.pages);
+  shirtURLs = data.pages.map(a => `${mainURL}${a.url}`);
+  console.log(shirtURLs);
+  scrapeIt(`${mainURL}${data.pages[0].url}`, {
     name: {
       selector: ".shirt-picture img",
       attr: "alt"
@@ -31,7 +34,8 @@ scrapeIt(`${url}shirts.php`, {
     }
   }).then(({ data, response }) => {
     console.log(`Status Code First Shirts Page: ${response.statusCode}`);
-    console.log(data);
+    shirtData.push(data);
+    console.log(shirtData);
   });
   // pageLinks.push(data.pages);
   // console.log(pageLinks);
