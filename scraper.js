@@ -20,7 +20,7 @@ scrapeIt(`${mainURL}shirts.php`, {
   // console.log(data.pages);
   shirtURLs = data.pages.map(a => `${mainURL}${a.url}`);
   console.log(shirtURLs);
-  scrapeIt(`${mainURL}${data.pages[0].url}`, {
+  scrapeIt(`${shirtURLs[0]}`, {
     name: {
       selector: ".shirt-picture img",
       attr: "alt"
