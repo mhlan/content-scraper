@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/mhlan/content-scraper#readme",
   "dependencies": {
+    "convert-array-to-csv": "^1.0.4",
     "scrape-it": "^5.0.5"
   }
 }
