@@ -16,7 +16,6 @@ scrapeIt(`${mainURL}shirts.php`, {
 })
   .then(({ data }) => {
     const urls = data.pages.map(page => `${mainURL}${page.url}`);
-    console.log(urls);
     const shirtCalls = urls.map(url =>
       scrapeIt(url, {
         name: {
@@ -36,5 +35,10 @@ scrapeIt(`${mainURL}shirts.php`, {
   })
   .then(shirtResults => {
     const shirts = shirtResults.map(shirtResult => shirtResult.data);
+    shirts.map(shirt => {
+      let pageID = shirt.image.replace(/\D/g, "");
+      shirt.url = `${mainURL}shirt.php?id=${pageID}`;
+      shirt.image = shirt.image.replace(/^/, `${mainURL}`);
+    });
     console.log(shirts);
   });
