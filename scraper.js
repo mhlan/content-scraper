@@ -1,7 +1,7 @@
 const fs = require("fs");
 const scrapeIt = require("scrape-it");
 const { convertArrayToCSV } = require("convert-array-to-csv");
-const converter = require("convert-array-to-csv");
+const mkdirp = require("mkdirp");
 
 const mainURL = "http://shirts4mike.com/";
 
@@ -49,18 +49,25 @@ scrapeIt(`${mainURL}shirts.php`, {
   .then(shirtData => {
     const shirtsCSV = convertArrayToCSV(shirtData);
     // console.log(shirtsCSV);
-    fs.writeFile(
-      `${new Date().toJSON().slice(0, 10)}.csv`,
-      shirtsCSV,
-      "utf8",
-      function(err) {
-        if (err) {
-          console.log(
-            "Some error occured - file either not saved or corrupted file saved."
-          );
-        } else {
-          console.log("It's saved!");
-        }
+    mkdirp("data", function(err) {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log("pow!");
+        fs.writeFile(
+          "data/" + `${new Date().toJSON().slice(0, 10)}.csv`,
+          shirtsCSV,
+          "utf8",
+          function(err) {
+            if (err) {
+              console.log(
+                "Some error occured - file either not saved or corrupted file saved."
+              );
+            } else {
+              console.log("It's saved!");
+            }
+          }
+        );
       }
-    );
+    });
   });
